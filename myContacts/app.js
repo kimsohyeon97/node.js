@@ -26,6 +26,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // '/contacts' 경로로 들어오는 요청을 contactRoutes에서 처리
+app.use("/", require("./routes/loginRoutes"));
 app.use("/contacts", require("./routes/contactRoutes"));
 
 // 포트 3000번에서 서버 실행
