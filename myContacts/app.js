@@ -1,3 +1,5 @@
+const methodOverride = require("method-override");
+
 // express 모듈 불러오기
 const express = require("express");
 
@@ -6,6 +8,13 @@ const dbConnect = require("./config/dbConnect");
 
 // express 애플리케이션 생성
 const app = express();
+
+app.set("view engine", "ejs");
+app.set("views", "./views");
+
+app.use(express.static("./public"));
+
+app.use(methodOverride("_method"));
 
 // MongoDB 연결 실행
 dbConnect();
